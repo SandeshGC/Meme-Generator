@@ -6,7 +6,7 @@ export default function Meme() {
 //  console.log(setMemeImage)
   function getMemeImage(){
     //change the link later
-    setMemeImage(() => "https://i.imgflip.com/43a45p.png");
+    setMemeImage("https://i.imgflip.com/43a45p.png");
   }
 
   return (
@@ -25,10 +25,10 @@ export default function Meme() {
           />
         </div>
         <button onClick={getMemeImage} className="rounded-md primary-gradient text-white h-10 mt-4">
-          Get a new meme image
+          Get a new meme image 🖼
         </button>
       </div>
-      <img src={memeImage} className="meme__img w-1/2 ml-auto mr-auto mt-6" />
+      <img src={memeImage} alt="a meme" className="meme__img w-1/2 ml-auto mr-auto mt-6" />
     </div>
   );
 }
