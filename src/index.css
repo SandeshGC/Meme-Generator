@@ -16,3 +16,7 @@ body{
 .primary-gradient{
   background: var(--gradient-main);
 }
+.meme__text{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  -webkit-text-stroke: 0.025rem black;
+}
