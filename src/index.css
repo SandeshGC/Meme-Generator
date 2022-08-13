@@ -11,13 +11,13 @@
 }
 body{
   margin:0;
-  background-color: #2f3e46;
 }
 .primary-gradient{
   background: var(--gradient-main);
 }
 .meme__text{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  -webkit-text-stroke: 0.025rem black;
+  -webkit-text-stroke: 0.05rem black;
   word-spacing: 0.25rem;
+  text-shadow: 0px 0px 10px black;
 }

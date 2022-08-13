@@ -6,7 +6,7 @@ export default function Meme() {
   const [meme, setMeme] = React.useState({
     topText: "",
     bottomText: "",
-    memeImage: "https://i.imgflip.com/64ku.jpg",
+    memeImage: "https://i.imgflip.com/28j0te.jpg",
   }); //stores the particular meme that is displayed right now
   const [allMemes, setAllMemes] = React.useState([]);
   //initiated allMemes state as an empty array
@@ -59,7 +59,7 @@ export default function Meme() {
   }
 
   return (
-    <div className="meme--container w-fit mt-12 max-w-5xl ml-auto mr-auto">
+    <div className="meme--container md:max-w-xl max-w-md mt-12 ml-auto mr-auto">
       <form onSubmit={handleSubmit} className="flex flex-col">
         <div className="flex justify-between items-center">
           <input
@@ -67,7 +67,7 @@ export default function Meme() {
             value={meme.topText}
             placeholder="Top text"
             onChange={handleChange}
-            className="rounded-md w-1/2  max-w-sm mr-2 h-10 border-2 pl-2 pr-2 text-sm mt-4"
+            className="rounded-md w-1/2 max-w-sm mr-2 h-10 border-2 pl-2 pr-2 text-sm mt-4"
           />
           <input
             name="bottomText"
@@ -81,16 +81,16 @@ export default function Meme() {
           Get a new meme image 🖼
         </button>
       </form>
-      <div className="meme relative right-0 mt-6">
+      <div className="meme relative right-0 w-full mt-6">
         <img
           src={meme.memeImage}
           alt="a meme"
           className="meme__img max-w-full w-full ml-auto mr-auto rounded-md"
         />
-        <h1 className="meme__text  uppercase text-5xl text-center w-full m-0 text-white top-1 absolute tracking-tighter font-extrabold">
+        <h1 className="meme__text border-amber-400 uppercase text-5xl text-center w-full m-0 text-white top-1 absolute tracking-tighter font-extrabold">
           {meme.topText}
         </h1>
-        <h1 className="meme__text  uppercase text-5xl text-center w-full m-0 text-white bottom-1 absolute tracking-tighter font-extrabold">
+        <h1 className="meme__text border-amber-400 uppercase text-5xl text-center w-full m-0 text-white bottom-1 absolute tracking-tighter font-extrabold">
           {meme.bottomText}
         </h1>
       </div>
