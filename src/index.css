@@ -19,4 +19,5 @@ body{
 .meme__text{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   -webkit-text-stroke: 0.025rem black;
+  word-spacing: 0.25rem;
 }

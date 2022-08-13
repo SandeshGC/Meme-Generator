@@ -1,32 +1,61 @@
 import React from "react";
 // import memeImage from "../images/meme.png";
 export default function Meme() {
+  let randomNumber;
   // const [memeImage, setMemeImage] = React.useState(""); //state that is init with memeImage
   const [meme, setMeme] = React.useState({
     topText: "",
     bottomText: "",
-    memeImage: "http://i.imgflip.com/1bij.jpg",
-  });
-  console.log(meme);
+    memeImage: "https://i.imgflip.com/64ku.jpg",
+  }); //stores the particular meme that is displayed right now
+  const [allMemes, setAllMemes] = React.useState([]);
+  //initiated allMemes state as an empty array
+  //stores all memes from api
+  //fetches data from api
+
+  React.useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((response) => response.json()) //returns a promise
+      .then((res) => setAllMemes(res.data.memes)); //takes data.memes from the promise which is an array of objects and sets the state;
+    // console.log("fetch done");
+    // console.log(allMemes.length)
+    // randomNumber = Math.floor(Math.random() * allMemes.length);
+    // console.log(randomNumber)
+    // console.log("here is all memes: ", allMemes[10]);
+    // setMeme((prevMeme) => {
+    //   return {
+    //     ...prevMeme,
+    //     memeImage: allMemes[randomNumber],
+    //     //sets a random image url as "memeImage"
+    //   };
+    // });
+  }, []);
+  //while clicking the "get new meme image btn"
+  //to get new meme image:
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    //getting a random number for the index of "allMemes" array
+    let randomNumber = Math.floor(Math.random() * allMemes.length);
+    console.log(allMemes[randomNumber].url);
+    setMeme((prevMeme) => {
+      return {
+        ...prevMeme,
+        memeImage: allMemes[randomNumber].url,
+        //sets a random image url as "memeImage"
+      };
+    });
+  }
+  //handle change on input
   function handleChange(event) {
     const { name, value } = event.target;
     setMeme((prevMeme) => {
       return {
         ...prevMeme,
         [name]: value,
+        //changes the value of the "key" whose value was changed, by looking at the name of the "form element"
       };
     });
-  }
-  //  console.log(setMemeImage)
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(meme.topText);
-    console.log(meme.bottomText);
-    console.log(meme.memeImage);
-    // setMeme((prevMeme) => ({ ...prevMeme, memeImage: { randomImage } }));
-    //function to get meme image
-    //change the link later
-    // setMemeImage("http://i.imgflip.com/1bij.jpg");
   }
 
   return (
@@ -56,12 +85,12 @@ export default function Meme() {
         <img
           src={meme.memeImage}
           alt="a meme"
-          className="meme__img w-full ml-auto mr-auto rounded-md"
+          className="meme__img max-w-full w-full ml-auto mr-auto rounded-md"
         />
-        <h1 className="meme__text uppercase text-5xl text-center w-full m-0 text-white top-1 absolute tracking-tighter font-extrabold">
+        <h1 className="meme__text  uppercase text-5xl text-center w-full m-0 text-white top-1 absolute tracking-tighter font-extrabold">
           {meme.topText}
         </h1>
-        <h1 className="meme__text uppercase text-5xl text-center w-full m-0 text-white bottom-1 absolute tracking-tighter font-extrabold">
+        <h1 className="meme__text  uppercase text-5xl text-center w-full m-0 text-white bottom-1 absolute tracking-tighter font-extrabold">
           {meme.bottomText}
         </h1>
       </div>
