@@ -1,7 +1,6 @@
 import React from "react";
 // import memeImage from "../images/meme.png";
 export default function Meme() {
-  let randomNumber;
   // const [memeImage, setMemeImage] = React.useState(""); //state that is init with memeImage
   const [meme, setMeme] = React.useState({
     topText: "",
@@ -42,7 +41,7 @@ export default function Meme() {
       return {
         ...prevMeme,
         memeImage: allMemes[randomNumber].url,
-        //sets a random image url as "memeImage"
+        //sets a random image url as "memeImage" from the 'allMemes array of memes'
       };
     });
   }
