@@ -1,8 +1,5 @@
 import React from "react";
-// import memeImage from "../images/meme.png";
 export default function Meme() {
-  let randomNumber;
-  // const [memeImage, setMemeImage] = React.useState(""); //state that is init with memeImage
   const [meme, setMeme] = React.useState({
     topText: "",
     bottomText: "",
@@ -11,28 +8,16 @@ export default function Meme() {
   const [allMemes, setAllMemes] = React.useState([]);
   //initiated allMemes state as an empty array
   //stores all memes from api
-  //fetches data from api
 
   React.useEffect(() => {
+    //fetches data from api
     fetch("https://api.imgflip.com/get_memes")
       .then((response) => response.json()) //returns a promise
       .then((res) => setAllMemes(res.data.memes)); //takes data.memes from the promise which is an array of objects and sets the state;
-    // console.log("fetch done");
-    // console.log(allMemes.length)
-    // randomNumber = Math.floor(Math.random() * allMemes.length);
-    // console.log(randomNumber)
-    // console.log("here is all memes: ", allMemes[10]);
-    // setMeme((prevMeme) => {
-    //   return {
-    //     ...prevMeme,
-    //     memeImage: allMemes[randomNumber],
-    //     //sets a random image url as "memeImage"
-    //   };
-    // });
   }, []);
+
   //while clicking the "get new meme image btn"
   //to get new meme image:
-
   function handleSubmit(event) {
     event.preventDefault();
     //getting a random number for the index of "allMemes" array
@@ -42,7 +27,7 @@ export default function Meme() {
       return {
         ...prevMeme,
         memeImage: allMemes[randomNumber].url,
-        //sets a random image url as "memeImage"
+        //sets a random image url as "memeImage" from the 'allMemes array of memes'
       };
     });
   }
