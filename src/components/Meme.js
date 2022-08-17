@@ -72,10 +72,10 @@ export default function Meme() {
           alt="a meme"
           className="meme__img max-w-full w-full ml-auto mr-auto rounded-md"
         />
-        <h1 className="meme__text border-amber-400 uppercase text-5xl text-center w-full m-0 text-white top-1 absolute tracking-tighter font-extrabold">
+        <h1 className="meme__text uppercase text-5xl text-center w-full m-0 text-white top-1 absolute tracking-tighter font-extrabold">
           {meme.topText}
         </h1>
-        <h1 className="meme__text border-amber-400 uppercase text-5xl text-center w-full m-0 text-white bottom-1 absolute tracking-tighter font-extrabold">
+        <h1 className="meme__text uppercase text-5xl text-center w-full m-0 text-white bottom-1 absolute tracking-tighter font-extrabold">
           {meme.bottomText}
         </h1>
       </div>
