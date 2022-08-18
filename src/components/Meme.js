@@ -44,7 +44,7 @@ export default function Meme() {
   }
 
   return (
-    <div className="meme--container md:max-w-xl max-w-md mt-12 ml-auto mr-auto">
+    <div className="meme--container pb-12 md:max-w-xl max-w-md mt-12 ml-auto mr-auto">
       <form onSubmit={handleSubmit} className="flex flex-col">
         <div className="flex justify-between items-center">
           <input
